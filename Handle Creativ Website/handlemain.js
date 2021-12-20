@@ -1,14 +1,14 @@
 
-import { chessScene} from "./chess.js";
-import { curtains, curtainsmain, pl, destroyPlane } from "./curtainsmain.js";
-import { curtainsTrans,planesTrans, curtainsTransFunc, destroyPlaneTrans  } from "./curtainsTrans.js";
-import { curtainsAg, curtainsgenturfunc, destroyPlaneAg } from "./curtainsagentur.js";
-import { plDet, curtainsProjDet,curtainsDet, destroyPlaneProjDet} from "./curtainsdet.js";
-import { curtainsprounder, curtainsproundermain, destroyPlaneproj  } from "./curtainprounder.js";
+import { chessScene} from "https://cdn.statically.io/gh/chris-ain/HCA/main/Handle%20Creativ%20Website/chess.js";
+import { curtains, curtainsmain, pl, destroyPlane } from "https://cdn.statically.io/gh/chris-ain/HCA/main/Handle%20Creativ%20Website/curtainsmain.js";
+import { curtainsTrans,planesTrans, curtainsTransFunc, destroyPlaneTrans  } from "https://cdn.statically.io/gh/chris-ain/HCA/main/Handle%20Creativ%20Website/curtainsTrans.js";
+import { curtainsAg, curtainsgenturfunc, destroyPlaneAg } from "https://cdn.statically.io/gh/chris-ain/HCA/main/Handle%20Creativ%20Website/curtainsagentur.js";
+import { plDet, curtainsProjDet,curtainsDet, destroyPlaneProjDet} from "https://cdn.statically.io/gh/chris-ain/HCA/main/Handle%20Creativ%20Website/curtainsdet.js";
+import { curtainsprounder, curtainsproundermain, destroyPlaneproj  } from "https://cdn.statically.io/gh/chris-ain/HCA/main/Handle%20Creativ%20Website/curtainprounder.js";
 import { curtainsP, projfunc, destroyPlaneP } from './projekte.js'
-import {slider1} from "./slider.js"
-import {menu, trans} from "./menu.js"
-import { menuItems } from './menuItems.js'
+import {slider1} from "https://cdn.statically.io/gh/chris-ain/HCA/main/Handle%20Creativ%20Website/slider.js"
+import {menu, trans} from "https://cdn.statically.io/gh/chris-ain/HCA/main/Handle%20Creativ%20Website/menu.js"
+import { menuItems } from 'https://cdn.statically.io/gh/chris-ain/HCA/main/Handle%20Creativ%20Website/menuItems.js'
 
 
 
