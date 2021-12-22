@@ -4,6 +4,9 @@ var trans;
 const menub = document.querySelector(".menubutton");
 const brandB = document.querySelector(".brand");
 const navW = document.querySelector(".navwrapper");
+const navLinks = document.querySelectorAll(".navitem");
+console.log(navLinks)
+
 
 
 const bounds = {
@@ -115,10 +118,7 @@ const bounds = {
 			menu = this;
 			gsap.to('.nav_outer', {opacity: 1, duration:.3, });
 			navW.classList.remove('pointernone')
-			// setTimeout(function () {
-			// 	navW.classList.add('pointernone')
-            //   },300)
-
+		
 		});
 
 
@@ -129,27 +129,13 @@ const bounds = {
 			menu = this;
 
 		});
-		// var transLinks = document.querySelectorAll(".link_trans");
+		$( ".navitem").click(function() {
+			
+			gsap.to(navW, {
+				opacity: 0, duration: .5
+			})
 
-		// transLinks.forEach(function(){
-		// 	gsapto('.nav_outer', {opacity: 0, duration:.3, });
-
-
-
-		// })
-
-	// 	$(".link_trans").click(() => {			
-	// 		this.reverse ? this.in() : this.out();
-	// 		menuTl.reversed(!menuTl.reversed());
-
-	// 	});
-
-	// 	$('.button').on('click', () => {
-	// 	if (this.animating) return
-	// 	this.reverse ? this.in() : this.out()
-	// })
-	
-
+		});
 
 	}
 
