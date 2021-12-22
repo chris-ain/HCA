@@ -379,11 +379,11 @@ if(!useNativeScroll) {
     });
 
     function onPlaneClick(event, plane) {
-        smoothScroll.stop();
-        smoothScroll.destroy();
+        // smoothScroll.stop();
+        // smoothScroll.destroy();
 
-        smoothScroll.init();
-        console.log(smoothScroll)
+        // smoothScroll.init();
+        // console.log(smoothScroll)
         canvasclick = document.getElementById("canvas"); // close button element
       
         // if no planes are already displayed fullscreen
