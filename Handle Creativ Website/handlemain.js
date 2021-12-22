@@ -12,6 +12,7 @@ import { menuItems } from 'https://cdn.statically.io/gh/chris-ain/HCA/main/Handl
 
 
 
+
 window.addEventListener("load", function(event) {
 
 
@@ -104,11 +105,12 @@ window.addEventListener("load", function(event) {
 
             beforeEnter() {
               setTimeout(function () {
-                trans.out();
+                if (trans.animating) {
+                  return
+                } else {
+                  trans.in();
+                }           
               },200)
-              setTimeout(function () {
-                trans.in();	
-                },2000);
             },
 
             afterEnter() { 
@@ -118,8 +120,32 @@ window.addEventListener("load", function(event) {
                 function() {
                   curtainsmain(smoothScroll);
                   chessScene();
-                  slider1()
+                  setTimeout(function () {
+
                   gsap.to(".page_wrap",{ autoAlpha: 1, opacity:1, duration: 0, delay:1.7 });
+
+                  let pinWrap = document.querySelector(".pin-wrap");
+                  let pinWrapWidth = pinWrap.offsetWidth;
+                  let horizontalScrollLength = pinWrapWidth - window.innerWidth;
+                console.log(horizontalScrollLength)
+                  // Pinning and horizontal scrolling
+                
+                  gsap.to(".pin-wrap", {
+                    scrollTrigger: {
+                      scroller: (".smooth-scroll"),
+                      scrub: true,
+                      trigger: "#sectionPin",
+                      pin: true,
+                      anticipatePin: 0,
+                      start: "top top",
+                      end: pinWrapWidth,
+                      ease: "none"
+                    },
+                    x: -horizontalScrollLength,
+                    ease: "none"
+                  });
+                }, 300);
+
                 }
               );   
               
@@ -181,11 +207,8 @@ window.addEventListener("load", function(event) {
                   return
                 } else {
                   trans.in();
-                }
-              
+                }           
               },200)
-         
-            
             },
 
             afterEnter() {
@@ -209,67 +232,8 @@ window.addEventListener("load", function(event) {
             },
           },
           /////////// PROJEKTE /////////////////////////
-          {
-            namespace: "projekte",
-            beforeEnter() {
-              	const container = document.body
-
-    // Preload images
-    const preloadImages = () => {
-        return new Promise((resolve, reject) => {
-            imagesLoaded(document.querySelectorAll('img'), resolve);
-        });
-    };
-    // And then..
-    preloadImages().then(() => {
-        // Remove the loader
-        // document.body.classList.remove('loading');
-        if (trans.animating) {
-          return
-        } else {
-          trans.in();
-        }           
-   
-      
-	});
-             
+         
           
-            },
-
-            afterEnter() {
-           
-              $('#page-content').imagesLoaded( function() {
-                setTimeout(function () {
-                  trans.in();	
-                  },2000);
-                  gsap.to(".icon", {
-                    opacity: 0,
-                    delay:3,
-                    duration: 1,
-                  })
-                gsap.to(".page_wrap",{ autoAlpha: 1, duration: 1, delay:.5 });
-                curtainsproundermain(smoothScroll);     
-                
-                const PlaneButton = document.querySelector('.plane')
-                PlaneButton.addEventListener('click',() => {
-                  smoothScroll.stop();
-                  smoothScroll.destroy();
-                 
-                })
-              });  
-            },
-
-            beforeLeave(data) {
-           
-              setTimeout(function () {
-        
-                destroyPlaneproj()
-                curtainsP.clear()
-                curtainsP.dispose()
-
-            },3000);
-            },
-          },
           /////////// PROJEKTDETAIL /////////////////////////
           {
             namespace: "projektdetail",
@@ -352,11 +316,12 @@ window.addEventListener("load", function(event) {
               // smoothScroll.stop();
 
               setTimeout(function () {    
-                destroyPlaneProjDet();
+
                 curtainsDet.clear()
                 curtainsDet.dispose()
                 curtainsTrans.clear()
                 curtainsTrans.dispose()
+   
 
               },2000);
             },
@@ -413,7 +378,13 @@ window.addEventListener("load", function(event) {
            {
             namespace: "logofolio",
             beforeEnter() {
-              trans.out();
+              setTimeout(function () {
+                if (trans.animating) {
+                  return
+                } else {
+                  trans.in();
+                }           
+              },200)
 
             },
             afterEnter() {
@@ -481,8 +452,9 @@ window.addEventListener("load", function(event) {
                     projfunc(smoothScroll);
                     const PlaneButton = document.querySelector('#page-content')
                     PlaneButton.addEventListener('click',() => {
-                     
-                     
+                     smoothScroll.stop()
+                     smoothScroll.destroy()
+
                     })
                   gsap.to(".page_wrap",{ autoAlpha: 1, duration: 1, delay:.5 });
 
@@ -493,7 +465,7 @@ window.addEventListener("load", function(event) {
     
               beforeLeave(data) {
                 setTimeout(function () {
-                  destroyPlaneP()
+                  curtainsP.clear();
                   curtainsP.dispose();
                   },2000);
            
@@ -517,7 +489,12 @@ window.addEventListener("load", function(event) {
               // do something once on the initial page load
               initSmoothScroll(data.next.container);
               navW.classList.add('pointernone')
-
+                  setTimeout(function () {
+                trans.out();
+              },200)
+              setTimeout(function () {
+                trans.in();	
+                },1700);
               initLoader();
   
             },
@@ -695,7 +672,4 @@ window.addEventListener("load", function(event) {
   init();
 
   });
-
-
-
 
