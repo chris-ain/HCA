@@ -1,5 +1,4 @@
  
-import * as THREE from 'https://threejs.org/build/three.module.js';
 import { GLTFLoader } from 'https://threejs.org/examples/jsm/loaders/GLTFLoader.js';
 var Composer;
 let stats, fxaaPass;
@@ -60,11 +59,11 @@ scene.environment = reflectionCube;
     var lightamb = new THREE.AmbientLight(0xf7f7f7, 0.1);
     scene.add(lightamb);
     var light2 = new THREE.DirectionalLight(0xef7f7f7);
-    light2.position.set(1, 1, 0.1).normalize();
+    light2.position.set(1, 1, 3).normalize();
     scene.add(light2);
     light2.shadow.camera = new THREE.OrthographicCamera(100, 100, 100, 100, 0.1, 0.1);
     light2.castShadow = true;
-    var light3 = new THREE.SpotLight(0xf7f7f7, 0.1);
+    var light3 = new THREE.SpotLight(0xf7f7f7, 3);
     light3.position.set(-1, -1, -1).normalize();
     scene.add(light3);
     
@@ -180,11 +179,11 @@ loader.load(
     renderer.setClearColor( 0x000000, 0 );
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.toneMappingExposure = .6;
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1;
+    // renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.shadowMap.enabled = true;
-    renderer.physicallyCorrectLights;
-    renderer.outputEncoding = THREE.sRGBEncoding;
+    // renderer.physicallyCorrectLights;
+    // renderer.outputEncoding = THREE.sRGBEncoding;
 
 
   
